@@ -23,7 +23,7 @@ git remote add origin URL_DO_GIT
 
 Migrando a base de dados do Django
 
-python manage.py makemigrations
+python manage.py makemigrations (fazer isso toda vez que editar o models.py)
 python manage.py migrate
 
 -----------------
