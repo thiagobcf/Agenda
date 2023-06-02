@@ -74,7 +74,7 @@ class RegisterForm(UserCreationForm):
         if User.objects.filter(email=email).exists():
             self.add_error(
                 'email',
-                ValidationError('Email já existente',code='invalid')
+                ValidationError('Email já existente', code='invalid')
             )
 
         return email
