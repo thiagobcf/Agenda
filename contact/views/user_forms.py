@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 
-from contact.forms import RegisterForm
+from contact.forms import RegisterForm, RegisterUpdateForm
 
 
 def register(request):
@@ -24,6 +24,21 @@ def register(request):
             'form': form
         }
     )
+
+
+def user_update(request):
+    form = RegisterUpdateForm(instance=request.user)
+
+    if request.method != 'POST':
+        return render(
+            request,
+            'contact/register.html',
+            {
+                'form': form
+            }
+        )
+    form.save()
+    return redirect('contact:user_update')
 
 
 def login_view(request):
